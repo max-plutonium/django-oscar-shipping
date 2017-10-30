@@ -38,13 +38,13 @@ API_AVAILABLE = {'pecom': _('PEC API ver. 1.0'),
 
 CHANGE_DESTINATION = getattr(settings, 'OSCAR_SHIPPING_CHANGE_DESTINATION', True)
 
-
 def get_api_modules():
     res = {}
     for name in API_AVAILABLE.keys():
         try:
             res[name] = importlib.import_module(".facade.%s" % name, __package__)
-        except ImportError:
+        except ImportError as e:
+            print(e)
             pass 
     return res
 

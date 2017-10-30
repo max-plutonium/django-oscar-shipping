@@ -231,7 +231,7 @@ class ShippingFacade(AbstractShippingFacade):
                     opt = {}
                     if not ch['hasError']:
                         opt = {'id': ch['transportingType'],
-                               'name': "%s" % unicode(self.get_transport_name(ch['transportingType'])),
+                               'name': "%s" % str(self.get_transport_name(ch['transportingType'])),
                                'cost': ch['costTotal'],
                                'services': ch['services'],
                                }
