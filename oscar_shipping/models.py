@@ -43,9 +43,8 @@ def get_api_modules():
     for name in API_AVAILABLE.keys():
         try:
             res[name] = importlib.import_module(".facade.%s" % name, __package__)
-        except ImportError as e:
-            print(e)
-            pass 
+        except ImportError:
+            pass
     return res
 
 api_modules_pool = get_api_modules()
